@@ -31,8 +31,8 @@ You can set up the environment using either conda or pip:
 #### Using conda
 ```bash
 # Create and activate conda environment
-conda create -n symbo python=3.9
-conda activate symbo
+conda create -n symstrate python=3.9
+conda activate symstrate
 
 # Install required packages
 conda install --file requirements.txt
