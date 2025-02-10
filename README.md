@@ -73,8 +73,21 @@ The tutorial walks through:
 
 1. Clone this repository
 2. Install the required dependencies
-3. Open `symbo_tutorial.ipynb` in Jupyter Notebook/Lab
+3. Open `binary_search_circuit_recovery.ipynb` in Jupyter Notebook/Lab
 4. Follow along with the examples and experiments
+
+## Resources
+
+- [SymPy](https://www.sympy.org/) - Python library for symbolic mathematics
+- [PySR](https://github.com/MilesCranmer/PySR) - High-performance symbolic regression in Python
+- [Julia](https://julialang.org/) - Required for PySR's backend
+
+### Additional Setup Notes
+
+PySR requires Julia to be installed as it uses Julia's symbolic regression engine. It should automatically install, but if not... To install Julia:
+
+1. Download Julia from [julialang.org](https://julialang.org/downloads/)
+2. Follow the [PySR installation instructions](https://github.com/MilesCranmer/PySR#installation)
 
 ## Contributing
 
