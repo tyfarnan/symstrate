@@ -1,43 +1,90 @@
-Overview
+# Program Synthesis via Symbolic Regression: A Novel Approach
 
-Can techniques from automatic theorem proving be leveraged for program synthesis? Can algorithm discovery techniques be generalized for program synthesis? By utilizing arithmetization techniques, programs can be encoded as a set of polynomial constraints that represent the gates of an arithmetic circuit? In this form, programs could be synthesized programs via a bottom up approach where simple gates are learned first, and then more complex gates are learned by composing simpler gates.
+## Abstract
 
-Symstrate aims to enable the exploration of symbolic regression for program synthesis via generative benchmarks that allow us to formally evaluate a model's ability to mine & compose symbolic abstractions. Can formal verification techniques be borrowed to build a synthetic data generator that generates input-output examples with semantically equivalent "function" AND syntactic program diversity?
+This research explores the intersection of program synthesis, symbolic regression, and arithmetic circuit recovery. We investigate whether techniques from automatic theorem proving and algorithm discovery can be leveraged for program synthesis by encoding programs as polynomial constraint systems. Our approach focuses on learning and composing arithmetic circuits through a bottom-up synthesis strategy.
 
-This work aims to provide the following contributions:
+## Research Objectives
 
-1. A forward pipeline that generates arithmetic circuits and polynomial constrain systems from a restricted python DSL. We can utilize python's AST to generate these circuits via DAG traversal.
-2. A backward pipeline that generates programs from a set of polynomial constraints, allowing for algabreic rewirings preserve semantic equivalence while producing syntax diversity, encouraging models to learn and reuse the actual undelrying circuit structures.
+1. Develop a framework for translating programs into arithmetic circuits and polynomial constraints
+2. Create generative benchmarks for evaluating symbolic regression in program synthesis
+3. Investigate the feasibility of mining and composing symbolic abstractions for program recovery
 
-Roadmap:
+## Methodology
 
-1. Build a program translater that takes leetcode problems and rewrites them using the restricted pythoh DSL that can be statically analyzed with the abstract syntax tree (AST).
-2. Build a tool that takes the AST and generates an arithmetic circuit and polynomial constraint system.
-3. Generate a small number of toy examples (leetcode problems statement and input ouput examples). Evaluate whether the model can generate the polynomials constraint system.
+### Forward Pipeline
+- Develop a restricted Python DSL for program representation
+- Implement AST-based analysis for circuit generation
+- Convert programs to arithmetic circuits via DAG traversal
+- Generate polynomial constraint systems
 
-Questions:
-1. How does O3 do on existing symbolic regression benchmarks?
-2. How well can O3 generate the polynomials constraint system?
-3. How well can O3 generate the programs from the polynomials constraint system?
-4. How well can O3 learn the underlying arithmetic circuit given the polynomials constraint system?
-4. How well can O3 learn the underlying arithmetic circuit given the program?
-5. How well can O3 learn the underlying arithmetic circuit given the polynomials constraint system?
+### Backward Pipeline
+- Create mechanisms for program generation from polynomial constraints
+- Implement algebraic rewiring techniques to preserve semantic equivalence
+- Encourage discovery of underlying circuit structures
+- Enable syntax diversity in generated programs
 
+## Implementation Roadmap
 
+1. **Program Translation Framework**
+   - Develop a translator for LeetCode-style problems
+   - Create a restricted Python DSL
+   - Implement static analysis via AST
 
-References:
+2. **Circuit Generation System**
+   - Build AST to arithmetic circuit converter
+   - Implement polynomial constraint system generator
+   - Validate on toy examples
 
-- [O3 ARC-AGI breakthrough](https://arcprize.org/blog/oai-o3-pub-breakthrough)
-- [alphageometry](https://github.com/google-deepmind/alphageometry)
-- [alphatensor](https://deepmind.google/discover/blog/discovering-novel-algorithms-with-alphatensor/)
-- [PLONK arithmetization](https://www.youtube.com/watch?v=0M0pAubEjz8)
+3. **Evaluation Framework**
+   - Generate benchmark problems
+   - Create input-output example sets
+   - Evaluate polynomial constraint system generation
+
+## Research Questions
+
+1. Performance Analysis
+   - How does O3 perform on existing symbolic regression benchmarks?
+   - Can O3 effectively generate polynomial constraint systems?
+   - How well can O3 recover programs from constraint systems?
+
+2. Circuit Learning
+   - Can O3 learn arithmetic circuits from:
+     - Polynomial constraint systems?
+     - Original programs?
+     - Combined approaches?
+
+## Technical Innovation
+
+Our approach leverages techniques from:
+- Zero-knowledge proofs for program verification
+- Arithmetic circuit representation
+- Symbolic regression for structure discovery
+- Program synthesis via constraint solving
+
+## Related Work
+
+- [OpenAI's O3 ARC-AGI Breakthrough](https://arcprize.org/blog/oai-o3-pub-breakthrough)
+- [DeepMind's AlphaGeometry](https://github.com/google-deepmind/alphageometry)
+- [AlphaTensor](https://deepmind.google/discover/blog/discovering-novel-algorithms-with-alphatensor/)
+- [PLONK Arithmetization](https://www.youtube.com/watch?v=0M0pAubEjz8)
 - [DreamCoder](https://arxiv.org/abs/2006.08381)
-- [SR tutorial](https://nmakke.github.io/SRTutorial_kdd24/)
-- [equation tree generator](https://autoresearch.github.io/equation-tree/)
+- [Symbolic Regression Tutorial](https://nmakke.github.io/SRTutorial_kdd24/)
+- [Equation Tree Generator](https://autoresearch.github.io/equation-tree/)
 
+## Expected Impact
 
-Ideas:
+This research aims to:
+1. Advance program synthesis techniques through symbolic regression
+2. Provide new tools for program verification without execution
+3. Enable automated discovery of program structures
+4. Bridge the gap between formal methods and machine learning approaches
 
-Borrowing techniques from zero-knowledge proofs, there is potential to verify the correctness of programs without actually executing them.
+## Future Directions
+
+- Extend to more complex program structures
+- Investigate scalability to larger programs
+- Explore applications in program verification
+- Develop hybrid approaches combining symbolic and neural methods
 
 
