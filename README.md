@@ -1,102 +1,164 @@
-# Symbolic Regression for Program Synthesis: Binary Search Circuit Recovery
+# Circuit Pattern Analysis Framework
 
-This repository contains a tutorial exploring how symbolic regression can be used to recover arithmetic circuits from program behavior. Using binary search as a case study, we demonstrate how programs can be "unrolled" into polynomial constraints and recovered through symbolic regression.
+This framework analyzes Python functions to identify computational patterns and generates equivalent arithmetic circuits.
 
-## Overview
+## Project Structure
 
-The `binary_search_circuit_recovery.ipynb` notebook demonstrates an exploratory approach to program synthesis using symbolic regression. Key concepts include:
-
-- Converting algorithmic behavior into arithmetic circuits
-- Representing program logic as polynomial constraints
-- Using symbolic regression to recover program components
-- Composing recovered components into complete programs
-
-## Purpose
-
-This tutorial serves as an exploratory learning experience to understand:
-1. How programs can be represented as arithmetic circuits
-2. How symbolic regression might be used for program synthesis
-3. The feasibility of recovering program structure from input-output behavior
-4. The challenges and possibilities of polynomial representations of programs
+```
+.
+├── abstract_circuit_generator.py  # Core pattern analysis engine
+├── circuit_viz.py                # Circuit visualization utilities
+├── array_algorithms.py           # Example array algorithms
+├── tests/                        # Test directory
+│   └── test_abstract_circuit_generator.py
+├── requirements.txt              # Project dependencies
+└── examples/                     # Example outputs
+```
 
 ## Prerequisites
 
-- Python 3.x
-- Jupyter Notebook/JupyterLab
+### System Dependencies
+Before installing the Python packages, you need:
 
-### Environment Setup
+- Python 3.8+
+- Graphviz (system package)
 
-You can set up the environment using either conda or pip:
-
-#### Using conda
+**Ubuntu/Debian:**
 ```bash
-# Create and activate conda environment
-conda create -n symstrate python=3.9
-conda activate symstrate
-
-# Install required packages
-conda install --file requirements.txt
+sudo apt-get update
+sudo apt-get install python3.8 python3.8-venv python3-pip graphviz
 ```
 
-#### Using pip
+**macOS:**
 ```bash
-# Install required packages
+brew install python@3.8 graphviz
+```
+
+**Windows:**
+```bash
+winget install Python.Python.3.8
+winget install graphviz
+# or with chocolatey
+choco install python3 graphviz
+```
+
+### Python Environment Setup
+
+1. Create and activate a virtual environment:
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# On Unix/macOS:
+source venv/bin/activate
+# On Windows:
+.\venv\Scripts\activate
+```
+
+2. Install dependencies:
+```bash
 pip install -r requirements.txt
 ```
 
-## Contents
+## Project Organization
 
-The tutorial walks through:
+- `abstract_circuit_generator.py`: Core pattern analysis engine
+  - Base patterns (LinearTraversal, Comparison, etc.)
+  - Pattern composition rules
+  - Circuit generation logic
 
-1. **Mathematical Framework**
-   - Converting binary search to polynomial constraints
-   - Representing program state and transitions
-   - Defining arithmetic circuit components
+- `array_algorithms.py`: Example algorithms
+  - Linear search
+  - Maximum element search
+  - Local maximum search
 
-2. **Component Recovery**
-   - Midpoint computation
-   - State update functions
-   - Output computation
-   - Using symbolic regression to learn each component
+- `tests/`: Test suite
+  - Pattern detection tests
+  - Constraint generation tests
+  - Pattern composition tests
 
-3. **Circuit Composition**
-   - Combining recovered components
-   - Full program synthesis
-   - Testing and validation
+## Running Tests
 
-4. **Key Insights**
-   - Feasibility of program recovery
-   - Limitations and challenges
-   - Future research directions
+1. Make sure you're in the virtual environment:
+```bash
+# On Unix/macOS:
+source venv/bin/activate
+# On Windows:
+.\venv\Scripts\activate
+```
 
-## Usage
+2. Run the test suite:
+```bash
+# Run all tests
+pytest
 
-1. Clone this repository
-2. Install the required dependencies
-3. Open `binary_search_circuit_recovery.ipynb` in Jupyter Notebook/Lab
-4. Follow along with the examples and experiments
+# Run with verbose output
+pytest -v
 
-## Resources
+# Run specific test file
+pytest tests/test_abstract_circuit_generator.py
 
-- [SymPy](https://www.sympy.org/) - Python library for symbolic mathematics
-- [PySR](https://github.com/MilesCranmer/PySR) - High-performance symbolic regression in Python
-- [Julia](https://julialang.org/) - Required for PySR's backend
+# Run specific test
+pytest tests/test_abstract_circuit_generator.py::test_pattern_detection
+```
 
-### Additional Setup Notes
+## Example Usage
 
-PySR requires Julia to be installed as it uses Julia's symbolic regression engine. It should automatically install, but if not... To install Julia:
+1. Analyze a function:
+```python
+from abstract_circuit_generator import AbstractCircuitGenerator
 
-1. Download Julia from [julialang.org](https://julialang.org/downloads/)
-2. Follow the [PySR installation instructions](https://github.com/MilesCranmer/PySR#installation)
+def find_first(arr, target):
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i
+    return -1
+
+# Create generator
+generator = AbstractCircuitGenerator()
+
+# Analyze function
+generator.analyze_function(find_first)
+
+# Get patterns
+patterns = generator.patterns
+
+# Generate constraints
+constraints = generator.generate_constraints()
+```
+
+2. Visualize patterns:
+```python
+# Print pattern analysis
+for pattern in patterns:
+    print(f"Pattern: {type(pattern).__name__}")
+    print(f"Variables: {pattern.variables}")
+    print(f"Constraints: {len(pattern.get_constraints())}")
+```
+
+## Pattern Composition
+
+The framework supports composing basic patterns into more complex ones:
+
+1. Basic Patterns:
+   - LinearTraversalPattern: Array iteration
+   - ComparisonPattern: Value comparisons
+   - AdjacentComparisonPattern: Adjacent element comparisons
+
+2. Composite Patterns:
+   - LinearSearchPattern: Combines traversal and equality comparison
+   - MaxElementPattern: Combines traversal and greater-than comparison
+   - LocalMaxPattern: Combines traversal and adjacent comparisons
 
 ## Contributing
 
-Feel free to open issues or submit pull requests if you find any errors or have suggestions for improvements.
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests
+5. Submit a pull request
 
 ## License
 
 [Add your chosen license here]
-
-## Note
-
-This is an experimental exploration into program synthesis techniques. The methods demonstrated are meant to provoke thought and discussion about alternative approaches to program recovery and synthesis, rather than provide production-ready solutions.
