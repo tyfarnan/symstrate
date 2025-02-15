@@ -1,0 +1,62 @@
+{
+  "common_pairs": [
+    [
+      "local_max",
+      "scale_up"
+    ]
+  ],
+  "frequent_patterns": [
+    [
+      "scale_up",
+      "threshold",
+      "shift_left",
+      "local_min"
+    ],
+    [
+      "scale_down",
+      "local_min",
+      "shift_right",
+      "local_max",
+      "threshold",
+      "shift_left",
+      "scale_up"
+    ],
+    [
+      "scale_down",
+      "local_min",
+      "shift_right",
+      "local_max",
+      "threshold",
+      "shift_left",
+      "scale_up"
+    ],
+    [
+      "shift_right",
+      "local_max",
+      "scale_up",
+      "scale_down"
+    ]
+  ],
+  "central_functions": [
+    [
+      "scale_up",
+      9
+    ],
+    [
+      "local_max",
+      8
+    ],
+    [
+      "local_min",
+      7
+    ],
+    [
+      "shift_right",
+      7
+    ],
+    [
+      "scale_down",
+      7
+    ]
+  ]
+}
