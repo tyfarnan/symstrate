@@ -1,102 +1,103 @@
-# Symbolic Regression for Program Synthesis: Binary Search Circuit Recovery
+# Program Pattern Analysis via Hypergraphs
 
-This repository contains a tutorial exploring how symbolic regression can be used to recover arithmetic circuits from program behavior. Using binary search as a case study, we demonstrate how programs can be "unrolled" into polynomial constraints and recovered through symbolic regression.
+This project explores program synthesis and pattern discovery by analyzing function compositions using hypergraph representations.
 
 ## Overview
 
-The `binary_search_circuit_recovery.ipynb` notebook demonstrates an exploratory approach to program synthesis using symbolic regression. Key concepts include:
+The goal is to discover reusable computational patterns by:
+1. Generating diverse function compositions
+2. Representing programs as hypergraphs
+3. Analyzing pattern similarity and reuse
+4. Finding common substructures
 
-- Converting algorithmic behavior into arithmetic circuits
-- Representing program logic as polynomial constraints
-- Using symbolic regression to recover program components
-- Composing recovered components into complete programs
+## Components
 
-## Purpose
+### Array Transformations (`src/array_transforms.py`)
+A test bed of simple array transformations that:
+- Preserve input/output array size
+- Perform local operations (shifts, comparisons)
+- Can be composed in various ways
 
-This tutorial serves as an exploratory learning experience to understand:
-1. How programs can be represented as arithmetic circuits
-2. How symbolic regression might be used for program synthesis
-3. The feasibility of recovering program structure from input-output behavior
-4. The challenges and possibilities of polynomial representations of programs
+Available transformations:
+- `shift_right/left`: Circular array shifts
+- `local_max/min`: Neighborhood operations
+- `scale_up/down`: Element-wise scaling
+- `threshold`: Mean-based thresholding
 
-## Prerequisites
-
-- Python 3.x
-- Jupyter Notebook/JupyterLab
-
-### Environment Setup
-
-You can set up the environment using either conda or pip:
-
-#### Using conda
-```bash
-# Create and activate conda environment
-conda create -n symstrate python=3.9
-conda activate symstrate
-
-# Install required packages
-conda install --file requirements.txt
-```
-
-#### Using pip
-```bash
-# Install required packages
-pip install -r requirements.txt
-```
-
-## Contents
-
-The tutorial walks through:
-
-1. **Mathematical Framework**
-   - Converting binary search to polynomial constraints
-   - Representing program state and transitions
-   - Defining arithmetic circuit components
-
-2. **Component Recovery**
-   - Midpoint computation
-   - State update functions
-   - Output computation
-   - Using symbolic regression to learn each component
-
-3. **Circuit Composition**
-   - Combining recovered components
-   - Full program synthesis
-   - Testing and validation
-
-4. **Key Insights**
-   - Feasibility of program recovery
-   - Limitations and challenges
-   - Future research directions
+### Hypergraph Analysis (`src/composition_analysis.py`)
+Tools for analyzing program structure:
+- Convert AST to hypergraph representation
+- Identify common computational patterns
+- Find similar program structures
+- Analyze function composition patterns
 
 ## Usage
 
-1. Clone this repository
-2. Install the required dependencies
-3. Open `binary_search_circuit_recovery.ipynb` in Jupyter Notebook/Lab
-4. Follow along with the examples and experiments
+### Generate Dataset
+```bash
+# Generate composition dataset
+python src/array_transforms/generator.py \
+    --size 100 \
+    --length 8 \
+    --max-depth 6 \
+    --output dataset.json
+```
 
-## Resources
+### Analyze Patterns
+```bash
+# Analyze compositions
+python src/hypergraph/composition.py \
+    dataset.json \
+    --output analysis.json \
+    --viz patterns.png
+```
 
-- [SymPy](https://www.sympy.org/) - Python library for symbolic mathematics
-- [PySR](https://github.com/MilesCranmer/PySR) - High-performance symbolic regression in Python
-- [Julia](https://julialang.org/) - Required for PySR's backend
+## Research Goals
 
-### Additional Setup Notes
+1. **Pattern Discovery**
+   - Find common computational motifs
+   - Identify reusable function compositions
+   - Discover emergent programming patterns
 
-PySR requires Julia to be installed as it uses Julia's symbolic regression engine. It should automatically install, but if not... To install Julia:
+2. **Program Synthesis**
+   - Use discovered patterns to guide synthesis
+   - Compose functions based on common patterns
+   - Generate programs from high-level specifications
 
-1. Download Julia from [julialang.org](https://julialang.org/downloads/)
-2. Follow the [PySR installation instructions](https://github.com/MilesCranmer/PySR#installation)
+3. **Abstraction Analysis**
+   - Study how functions compose effectively
+   - Identify natural abstraction boundaries
+   - Understand pattern reuse across programs
+
+## Installation
+
+```bash
+# Clone repository
+git clone [repository-url]
+cd program-pattern-analysis
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # or `venv\Scripts\activate` on Windows
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+## Dependencies
+- numpy: Array operations
+- hypernetx: Hypergraph representation
+- matplotlib: Visualization
+- networkx: Graph analysis
 
 ## Contributing
 
-Feel free to open issues or submit pull requests if you find any errors or have suggestions for improvements.
+Areas for exploration:
+1. Additional array transformations
+2. More sophisticated pattern analysis
+3. Pattern visualization improvements
+4. Synthesis applications
 
 ## License
 
 [Add your chosen license here]
-
-## Note
-
-This is an experimental exploration into program synthesis techniques. The methods demonstrated are meant to provoke thought and discussion about alternative approaches to program recovery and synthesis, rather than provide production-ready solutions.
