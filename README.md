@@ -1,14 +1,23 @@
-# Program Pattern Analysis via Hypergraphs
+# Symbolic Regression for Program Pattern Discovery
 
-This project explores program synthesis and pattern discovery by analyzing function compositions using hypergraph representations.
+This repository explores how symbolic regression can be used to discover and recover program patterns. Using array transformations as a case study, we demonstrate how programs can be represented as hypergraphs and analyzed to find reusable computational patterns.
 
 ## Overview
 
-The goal is to discover reusable computational patterns by:
-1. Generating diverse function compositions
-2. Representing programs as hypergraphs
-3. Analyzing pattern similarity and reuse
-4. Finding common substructures
+This project demonstrates an exploratory approach to program synthesis using symbolic regression and hypergraph analysis. Key concepts include:
+
+- Representing programs as hypergraphs
+- Discovering common computational patterns
+- Using symbolic regression for pattern recovery
+- Composing discovered patterns into new programs
+
+## Purpose
+
+This research serves as an exploratory learning experience to understand:
+1. How programs can be represented as hypergraphs
+2. How symbolic regression might discover program patterns
+3. The feasibility of recovering program structure from compositions
+4. The role of abstraction in program synthesis
 
 ## Components
 
@@ -31,12 +40,29 @@ Tools for analyzing program structure:
 - Find similar program structures
 - Analyze function composition patterns
 
+## Mathematical Framework
+
+The analysis involves:
+1. **Program Representation**
+   - Converting programs to hypergraphs
+   - Representing function compositions
+   - Identifying computational patterns
+
+2. **Pattern Discovery**
+   - Finding common substructures
+   - Analyzing pattern frequency
+   - Understanding composition rules
+
+3. **Pattern Recovery**
+   - Using symbolic regression to learn patterns
+   - Reconstructing program components
+   - Validating recovered patterns
+
 ## Usage
 
 ### Generate Dataset
 ```bash
-# Generate composition dataset
-python src/array_transforms/generator.py \
+python src/array_transforms.py \
     --size 100 \
     --length 8 \
     --max-depth 6 \
@@ -45,50 +71,39 @@ python src/array_transforms/generator.py \
 
 ### Analyze Patterns
 ```bash
-# Analyze compositions
-python src/hypergraph/composition.py \
+python src/composition_analysis.py \
     dataset.json \
     --output analysis.json \
     --viz patterns.png
 ```
 
-## Research Goals
+## Prerequisites
 
-1. **Pattern Discovery**
-   - Find common computational motifs
-   - Identify reusable function compositions
-   - Discover emergent programming patterns
+- Python 3.x
+- Required packages:
+  - numpy: Array operations
+  - hypernetx: Hypergraph representation
+  - matplotlib: Visualization
+  - networkx: Graph analysis
+  - sympy: Symbolic mathematics
+  - PySR: Symbolic regression
 
-2. **Program Synthesis**
-   - Use discovered patterns to guide synthesis
-   - Compose functions based on common patterns
-   - Generate programs from high-level specifications
-
-3. **Abstraction Analysis**
-   - Study how functions compose effectively
-   - Identify natural abstraction boundaries
-   - Understand pattern reuse across programs
-
-## Installation
+### Environment Setup
 
 ```bash
-# Clone repository
-git clone [repository-url]
-cd program-pattern-analysis
+# Create and activate conda environment
+conda create -n symstrate python=3.9
+conda activate symstrate
 
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # or `venv\Scripts\activate` on Windows
-
-# Install dependencies
+# Install required packages
 pip install -r requirements.txt
 ```
 
-## Dependencies
-- numpy: Array operations
-- hypernetx: Hypergraph representation
-- matplotlib: Visualization
-- networkx: Graph analysis
+## Resources
+
+- [SymPy](https://www.sympy.org/) - Symbolic mathematics
+- [PySR](https://github.com/MilesCranmer/PySR) - Symbolic regression
+- [HyperNetX](https://pnnl.github.io/HyperNetX/) - Hypergraph analysis
 
 ## Contributing
 
@@ -97,6 +112,10 @@ Areas for exploration:
 2. More sophisticated pattern analysis
 3. Pattern visualization improvements
 4. Synthesis applications
+
+## Note
+
+This is an experimental exploration into program synthesis techniques. The methods demonstrated are meant to provoke thought and discussion about alternative approaches to program recovery and synthesis, rather than provide production-ready solutions.
 
 ## License
 
