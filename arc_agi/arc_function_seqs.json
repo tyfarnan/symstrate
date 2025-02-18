@@ -1,0 +1,713 @@
+{
+    "98cf29f8": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw input 2D array into a structured representation with indexed cell coordinates and color values."
+      },
+      {
+        "function": "identifyColorRegions",
+        "description": "Identifies contiguous regions of identical colors within the grid by grouping neighboring cells."
+      },
+      {
+        "function": "extractBlock",
+        "description": "Extracts the primary block (object) from the set of identified color regions based on size or position."
+      },
+      {
+        "function": "cropGrid",
+        "description": "Crops the grid to the minimal bounding box that encloses the extracted block, removing extraneous margins."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Converts the processed, structured representation back into a standard raw 2D array output."
+      }
+    ],
+    "2bee17df": [
+      {
+        "function": "parseGrid",
+        "description": "Converts the raw grid into an internal structured format that indexes cell positions and colors."
+      },
+      {
+        "function": "detectBoundaries",
+        "description": "Detects the edges of colored regions by identifying transitions between different color values."
+      },
+      {
+        "function": "extractInterior",
+        "description": "Extracts the interior area enclosed by the detected boundaries of a region."
+      },
+      {
+        "function": "fillRegion",
+        "description": "Fills the extracted interior region with a specified new color or pattern as dictated by the task rule."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the internally processed grid back into a raw 2D array output."
+      }
+    ],
+    "dae9d2b5": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw input grid into a structured data format with explicit cell positions and color values."
+      },
+      {
+        "function": "partitionColumns",
+        "description": "Partitions the grid into groups of columns to prepare for a horizontal merging or compression operation."
+      },
+      {
+        "function": "applyColorMapping",
+        "description": "Applies a fixed mapping to transform original colors into new ones, merging or replacing values as required."
+      },
+      {
+        "function": "cropGrid",
+        "description": "Crops out any redundant columns after merging to produce a concise output grid."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the transformed grid structure back into a raw 2D array."
+      }
+    ],
+    "8be77c9e": [
+      {
+        "function": "parseGrid",
+        "description": "Converts the raw input 2D array into a structured grid representation with coordinate indexing."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Splits the grid along a specified axis into two halves for further manipulation."
+      },
+      {
+        "function": "mirrorGrid",
+        "description": "Generates a mirror image of one half of the grid, effectively reflecting it across the split axis."
+      },
+      {
+        "function": "concatenateHalves",
+        "description": "Concatenates the original half and its mirrored counterpart to form the full symmetric grid."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Converts the internally assembled symmetric grid back into the standard 2D array format."
+      }
+    ],
+    "7b7f7511": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw input grid into a structured representation of cell positions and colors."
+      },
+      {
+        "function": "detectRepetition",
+        "description": "Detects repeating patterns or duplicated regions in the grid by analyzing cell similarity and layout."
+      },
+      {
+        "function": "cropGrid",
+        "description": "Crops the grid to retain only a single instance of the repeated pattern, removing duplicates."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the cropped, processed grid back into a raw 2D array for output."
+      }
+    ],
+    "1990f7a8": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw input grid into a structured format that indexes individual cell colors and positions."
+      },
+      {
+        "function": "identifyObjects",
+        "description": "Identifies distinct connected objects in the grid by grouping adjacent cells with the same color."
+      },
+      {
+        "function": "applyIdentity",
+        "description": "Copies the identified objects directly, leaving them unchanged as the task requires an identity transformation."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the unchanged objects into the final output grid in raw 2D array form."
+      }
+    ],
+    "67636eac": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw grid into a structured representation with explicit cell data."
+      },
+      {
+        "function": "identifyObjects",
+        "description": "Groups connected cells of the same color to identify distinct objects in the grid."
+      },
+      {
+        "function": "applyIdentity",
+        "description": "Copies the identified objects without modification as required by the task."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Converts the structured representation of objects back into a raw output grid."
+      }
+    ],
+    "45737921": [
+      {
+        "function": "parseGrid",
+        "description": "Converts the input grid into a structured format with cell-level detail."
+      },
+      {
+        "function": "identifyObjects",
+        "description": "Detects and groups contiguous regions of identical colors to form objects."
+      },
+      {
+        "function": "applyIdentity",
+        "description": "Directly copies the identified objects into the output without altering their properties."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the copied objects back into a raw 2D grid."
+      }
+    ],
+    "73182012": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw grid into an internal structured format for processing."
+      },
+      {
+        "function": "identifyObjects",
+        "description": "Identifies connected groups of cells (objects) based on color adjacency."
+      },
+      {
+        "function": "applyIdentity",
+        "description": "Copies the detected objects directly without modification to the output."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the final grid by converting the structured representation back to a raw array."
+      }
+    ],
+    "423a55dc": [
+      {
+        "function": "parseGrid",
+        "description": "Converts the raw input grid into a structured representation that indexes all cell values."
+      },
+      {
+        "function": "identifyObjects",
+        "description": "Groups connected cells with the same color to identify distinct objects in the grid."
+      },
+      {
+        "function": "applyIdentity",
+        "description": "Preserves the objects as found, performing an identity transformation."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the unmodified objects into the final output grid."
+      }
+    ],
+    "7c9b52a0": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw input grid into a structured internal representation with cell coordinates."
+      },
+      {
+        "function": "identifyObjects",
+        "description": "Identifies and groups cells into objects based on contiguous color regions."
+      },
+      {
+        "function": "applyIdentity",
+        "description": "Copies the identified objects directly to the output without any alteration."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the resulting structure back into a standard raw grid format."
+      }
+    ],
+    "1c56ad9f": [
+      {
+        "function": "parseGrid",
+        "description": "Transforms the raw input grid into a structured format with cell-by-cell detail."
+      },
+      {
+        "function": "identifyObjects",
+        "description": "Identifies distinct, connected objects within the grid by grouping adjacent cells of the same color."
+      },
+      {
+        "function": "applyIdentity",
+        "description": "Copies the identified objects exactly as they appear in the input."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the copied objects back into the final output grid."
+      }
+    ],
+    "0bb8deee": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw grid into an internal data structure that captures cell positions and colors."
+      },
+      {
+        "function": "identifyObjects",
+        "description": "Detects connected clusters of cells with the same color to form objects."
+      },
+      {
+        "function": "applyIdentity",
+        "description": "Performs an identity transformation by copying the objects directly into the output."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Converts the processed representation back into a raw 2D grid for output."
+      }
+    ],
+    "1a6449f1": [
+      {
+        "function": "parseGrid",
+        "description": "Converts the raw input grid into a structured format with detailed cell metadata."
+      },
+      {
+        "function": "identifyObjects",
+        "description": "Detects and groups contiguous cells into distinct objects based on their color."
+      },
+      {
+        "function": "selectObject",
+        "description": "Selects a specific object from the identified set based on predetermined criteria (such as size or location)."
+      },
+      {
+        "function": "repositionObject",
+        "description": "Repositions the selected object within the grid according to a defined transformation rule."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the repositioned object into the final output grid."
+      }
+    ],
+    "e7dd8335": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw input grid into an organized internal representation."
+      },
+      {
+        "function": "identifyObjects",
+        "description": "Identifies distinct connected components (objects) in the grid by grouping same-colored cells."
+      },
+      {
+        "function": "selectObject",
+        "description": "Selects one object from the identified groups based on specified criteria."
+      },
+      {
+        "function": "repositionObject",
+        "description": "Moves the selected object to a new location within the grid according to task rules."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Converts the final transformed structure back into a raw grid for output."
+      }
+    ],
+    "195ba7dc": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw input grid into a structured format suitable for regional analysis."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Splits the grid along a defined axis to isolate distinct subregions for further processing."
+      },
+      {
+        "function": "mergeRegions",
+        "description": "Merges the separated subregions into a single coherent output region based on spatial correspondence."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the merged region back into a raw 2D array as the final output."
+      }
+    ],
+    "5d2a5c43": [
+      {
+        "function": "parseGrid",
+        "description": "Transforms the raw grid into a structured representation with clear region boundaries."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Divides the grid into segments along a specified axis to isolate different parts."
+      },
+      {
+        "function": "mergeRegions",
+        "description": "Combines the split segments into a unified output by aligning corresponding regions."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Converts the unified internal representation back into the raw grid output."
+      }
+    ],
+    "3d31c5b3": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the input grid into a data structure that records cell positions and colors."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Divides the grid into multiple regions along a designated axis."
+      },
+      {
+        "function": "mergeRegions",
+        "description": "Merges the divided regions into a single output grid by aligning adjacent parts."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the final merged grid into a standard 2D array for output."
+      }
+    ],
+    "e99362f0": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw input grid into a structured representation with detailed cell information."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Splits the grid into subregions based on predefined spatial criteria."
+      },
+      {
+        "function": "mergeRegions",
+        "description": "Merges the extracted subregions into one cohesive output region."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Converts the cohesive region back into a raw 2D grid format."
+      }
+    ],
+    "e133d23d": [
+      {
+        "function": "parseGrid",
+        "description": "Transforms the raw grid into a structured internal representation with indexed cells."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Splits the grid into several subregions along a given axis."
+      },
+      {
+        "function": "mergeRegions",
+        "description": "Combines these subregions into a single region based on spatial alignment."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the combined region back into the final 2D output grid."
+      }
+    ],
+    "e345f17b": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the input grid into a structured format with clear cell coordinates."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Partitions the grid into distinct segments along a predetermined axis."
+      },
+      {
+        "function": "mergeRegions",
+        "description": "Merges the segmented regions into a unified output structure."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Converts the unified structure back into a standard 2D grid output."
+      }
+    ],
+    "ea9794b1": [
+      {
+        "function": "parseGrid",
+        "description": "Converts the raw grid into an internal data structure that details each cell."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Divides the grid into multiple subregions based on its spatial layout."
+      },
+      {
+        "function": "mergeRegions",
+        "description": "Merges the subregions into a single coherent region by aligning their boundaries."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the coherent merged region back into a raw output grid."
+      }
+    ],
+    "31d5ba1a": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw input grid into a structured representation with cell-level details."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Splits the grid into sections along a defined axis to isolate different regions."
+      },
+      {
+        "function": "mergeRegions",
+        "description": "Merges the isolated sections into a single output region by matching edges."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the merged section back into the final 2D grid."
+      }
+    ],
+    "d19f7514": [
+      {
+        "function": "parseGrid",
+        "description": "Transforms the raw grid into a detailed, structured format."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Divides the grid into multiple parts based on spatial segmentation rules."
+      },
+      {
+        "function": "mergeRegions",
+        "description": "Combines the segmented parts into one unified grid based on matching boundaries."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Converts the unified internal representation back into a raw grid output."
+      }
+    ],
+    "66f2d22f": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the input grid into a structured format with explicit coordinates and color values."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Partitions the grid along a specified axis to isolate distinct regions."
+      },
+      {
+        "function": "mergeRegions",
+        "description": "Merges the partitioned regions into a single output grid by aligning matching edges."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the merged output structure back into a standard 2D array."
+      }
+    ],
+    "506d28a5": [
+      {
+        "function": "parseGrid",
+        "description": "Converts the raw grid into a structured representation that facilitates region analysis."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Splits the grid into subregions along a defined axis."
+      },
+      {
+        "function": "mergeRegions",
+        "description": "Merges the subregions into a single output region by combining adjacent areas."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the final merged region into a raw 2D grid format."
+      }
+    ],
+    "6a11f6da": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw input grid into an internal data structure with detailed cell metadata."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Divides the grid into several sections along a chosen axis."
+      },
+      {
+        "function": "mergeRegions",
+        "description": "Merges the divided sections into a coherent single region based on spatial proximity."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the coherent region back into the final raw grid output."
+      }
+    ],
+    "34b99a2b": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw 2D input grid into a structured format with coordinate indexing."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Splits the grid into subregions based on pre–defined spatial criteria."
+      },
+      {
+        "function": "mergeRegions",
+        "description": "Merges the subregions into a single unified grid by aligning common borders."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the unified grid back into a raw 2D array."
+      }
+    ],
+    "281123b4": [
+      {
+        "function": "parseGrid",
+        "description": "Converts the raw input grid into a structured internal representation."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Partitions the grid into distinct regions along a specified axis."
+      },
+      {
+        "function": "mergeRegions",
+        "description": "Merges the distinct regions into a single output grid based on spatial alignment."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the final merged grid into the standard output format."
+      }
+    ],
+    "0c9aba6e": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw input 2D array into an internal structured representation."
+      },
+      {
+        "function": "splitGrid",
+        "description": "Divides the grid into segments along a chosen axis for isolated processing."
+      },
+      {
+        "function": "mergeRegions",
+        "description": "Merges the segmented regions into one output region by combining similar parts."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Converts the merged internal structure back into a raw 2D grid."
+      }
+    ],
+    "59341089": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw input grid into a structured representation that records cell details."
+      },
+      {
+        "function": "detectTilePattern",
+        "description": "Detects a repeated tiling pattern within a subregion of the grid."
+      },
+      {
+        "function": "tileGrid",
+        "description": "Replicates the detected subregion pattern across the grid to form a tiled layout."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the tiled grid pattern back into a standard 2D array."
+      }
+    ],
+    "7953d61e": [
+      {
+        "function": "parseGrid",
+        "description": "Transforms the raw input grid into an internal structured format."
+      },
+      {
+        "function": "detectTilePattern",
+        "description": "Analyzes the grid to identify a repeating tile or pattern in a subregion."
+      },
+      {
+        "function": "tileGrid",
+        "description": "Tiles the identified subregion pattern across the output grid in a systematic fashion."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Converts the tiled structure back into a raw 2D grid for output."
+      }
+    ],
+    "0c786b71": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw grid input into a structured format for analysis."
+      },
+      {
+        "function": "detectTilePattern",
+        "description": "Identifies the presence of a regular, repeated tile pattern within a part of the grid."
+      },
+      {
+        "function": "tileGrid",
+        "description": "Replicates the detected tile pattern to fill the grid according to the task rule."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the tiled pattern as a complete output grid."
+      }
+    ],
+    "833dafe3": [
+      {
+        "function": "parseGrid",
+        "description": "Converts the raw 2D input grid into a structured internal representation."
+      },
+      {
+        "function": "detectTilePattern",
+        "description": "Detects a repeating tiling pattern by analyzing spatial periodicity in the grid."
+      },
+      {
+        "function": "tileGrid",
+        "description": "Tiles the identified pattern uniformly across the grid to produce the output layout."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Converts the tiled internal structure back into a raw 2D grid output."
+      }
+    ],
+    "ed98d772": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw input grid into an internal data structure with explicit cell positions."
+      },
+      {
+        "function": "detectTilePattern",
+        "description": "Identifies the repeated subgrid pattern within the input by detecting periodic cell arrangements."
+      },
+      {
+        "function": "tileGrid",
+        "description": "Replicates the detected subgrid pattern to fill the output grid consistently."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the final tiled grid back into the raw 2D array format."
+      }
+    ],
+    "66e6c45b": [
+      {
+        "function": "parseGrid",
+        "description": "Converts the raw input grid into a structured internal representation with detailed metadata."
+      },
+      {
+        "function": "applyDeepTransformation",
+        "description": "Executes a multi–step, hierarchical transformation that performs several intermediate modifications to the grid."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Converts the deeply transformed internal structure back into the final 2D grid output."
+      }
+    ],
+    "32e9702f": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw input grid into a structured format with full cell details."
+      },
+      {
+        "function": "applyDeepTransformation",
+        "description": "Applies a multi–layered transformation process that sequentially modifies the grid over several stages."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the final result of the deep transformation back into a raw grid format."
+      }
+    ],
+    "60c09cac": [
+      {
+        "function": "parseGrid",
+        "description": "Transforms the raw input 2D array into a structured representation for further processing."
+      },
+      {
+        "function": "applyDeepTransformation",
+        "description": "Performs a series of nested transformation steps that cumulatively alter the grid according to task-specific rules."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Converts the deeply transformed structure back into a standard 2D array output."
+      }
+    ],
+    "default": [
+      {
+        "function": "parseGrid",
+        "description": "Parses the raw input grid into an internal structured representation with detailed cell information."
+      },
+      {
+        "function": "transformGrid",
+        "description": "Applies a generic transformation to the grid based on default heuristics when no specific rule is identified."
+      },
+      {
+        "function": "renderGrid",
+        "description": "Renders the generically transformed grid back into a raw 2D array for output."
+      }
+    ]
+  }
+  
